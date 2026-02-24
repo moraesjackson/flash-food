@@ -2,6 +2,7 @@ import Colors from "@/services/Colors";
 import { axiosClient } from "@/services/GlobalApi";
 import { useSSO, useUser } from "@clerk/clerk-expo";
 import * as AuthSession from "expo-auth-session";
+import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation, useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import React, { useCallback, useEffect } from "react";
@@ -106,9 +107,12 @@ const onPress = useCallback(async () => {
 }, [startSSOFlow]);
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={[Colors.PRIMARY, Colors.PRIMARY_DARK]} 
+      style={styles.container}
+    >
       <Image
-        source={require("./../assets/images/shop.jpg")}
+        source={require("./../assets/images/shop-preview-1771891846887.png")}
         style={{
           width: "100%",
           height: 270,
@@ -188,7 +192,7 @@ const onPress = useCallback(async () => {
           </Text>
         </View>
       </View>
-    </View>
+    </LinearGradient>
   );
 }
 
@@ -196,6 +200,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.PRIMARY,
     height: "100%",
+    padding:20
   },
   heading: {
     fontFamily: "appFontBold",
